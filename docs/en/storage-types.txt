@@ -1,0 +1,39 @@
+++ Discrete
+
+Discrete storage is the base behavior for many other storage types, but it can be used on its own. Discrete polls are defined as follows:
+
+    [yml]
+    DiscretePoll:
+      storage:
+        type: discrete
+        options:
+          values: [a,b,c]
+    
+The `values` option is required and tells the discrete storage which responses to accept:
+
+    [php]
+    $ent->DiscretePoll->respond('a');
+    $ent->DiscretePoll->respond('b');
+    $ent->DiscretePoll->respond('c');
+    
+    $ent->DiscretePoll->respond('d'); //throws Doctrine_Pollable_Exception
+
++++ Static
+
+++++ Yes or No
+
+++++ Up or Down
+
+++++ Rating (Integer)
+
+++++ Rating (Floating point)
+
++++ Per-entity
+
+Not yet implemented
+
+++ Non-discrete
+
++++ Write-in
+
+

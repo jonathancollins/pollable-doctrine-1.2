@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package xmlns="http://pear.php.net/dtd/package-2.0" xmlns:tasks="http://pear.php.net/dtd/tasks-1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" packagerversion="1.4.1" version="2.0" xsi:schemaLocation="http://pear.php.net/dtd/tasks-1.0 http://pear.php.net/dtd/tasks-1.0.xsd http://pear.php.net/dtd/package-2.0 http://pear.php.net/dtd/package-2.0.xsd">
+  <name>Taggable</name>
+  <channel>pear.phpdoctrine.org</channel>
+  <summary>Provide your model with polling and data collection capabilities</summary>
+  <description>Pollable provides your models with polling and data collection capabilities. It handles responses and assists you in analyzing the results. It is useful in collecting and reporting user opinions or ratings in content-oriented, community-driven websites--rating an article from one to five stars, giving a video a thumbs up or down, or marking a comment funny or insightful, for example--but is also useful in general data collection and analyzation.</description>
+  <license>LGPL</license>
+  <lead>
+    <name>Jonathan Collins</name>
+    <user>jonathancollins</user>
+    <email>pollable@joncollins.name</email>
+    <active>yes</active>
+  </lead>
+  <version>
+    <date>2010-00-00</date>
+    <release>1.0.0-ALPHA1</release>
+    <api>1.0</api>
+  </version>
+  <stability>
+    <release>alpha</release>
+    <api>alpha</api>
+  </stability>
+  <notes>-</notes>
+  <contents>
+  </contents>
+  <dependencies>
+    <required>
+      <php>
+        <min>5.2.4</min>
+      </php>
+      <pearinstaller>
+        <min>1.4.1</min>
+      </pearinstaller>
+      <package>
+        <name>Doctrine</name>
+        <channel>pear.phpdoctrine.org</channel>
+        <min>1.2.0</min>
+      </package>
+    </required>
+  </dependencies>
+  <phprelease></phprelease>
+  <changelog></changelog>
+</package>
