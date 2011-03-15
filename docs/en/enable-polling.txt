@@ -42,9 +42,6 @@ After building the models and deploying the tables, you may use the `Ratings` ac
 
 Transient (unpersisted) records do not accept responses. It is not necessary to call `$blog_post->save()` after using `respond()`.
 
-> **NOTE**
-> This extension does not provide migrations when adding polling capability to your models
-
 Accessing and analyzing the results is easy:
 
     [php]
