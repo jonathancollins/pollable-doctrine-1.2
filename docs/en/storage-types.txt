@@ -87,7 +87,7 @@ To figure out the prevailing reason behind the votes, use the `reason()` method:
 Collects integer ratings. Polls are defined as follows:
 
     [yml]
-    WriteInPoll:
+    RatingPoll:
       storage:
         type: rating
         options:
@@ -99,7 +99,7 @@ Collects integer ratings. Polls are defined as follows:
 Collects floating point ratings. Polls are defined as follows:
 
     [yml]
-    WriteInPoll:
+    RatingFloatPoll:
       storage:
         type: rating_float
         options:
