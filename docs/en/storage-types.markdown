@@ -1,4 +1,4 @@
-++ Discrete
+## Discrete
 
 Discrete storage is the base behavior for many other storage types, but it can be used on its own. Discrete polls are defined as follows:
 
@@ -26,9 +26,9 @@ The `values` option is required and tells the discrete storage which responses t
     print $ent->DiscretePoll->mode(); //prints 'c'
     print $ent->DiscretePoll->median(); //prints 'b'
 
-+++ Static
+### Static
 
-++++ Yes or No
+#### Yes or No
 
 Collects yes or no responses. Yes or No polls are defined as follows:
 
@@ -51,7 +51,7 @@ This storage type also provides `yes()`, `no()`, and `approved()` methods:
 
     print $ent->YesNoPoll->approved(); //prints true
 
-++++ Up or Down
+#### Up or Down
 
 Collects up or down responses with an optional reason. Up or Down polls are defined as follows:
 
@@ -82,7 +82,7 @@ To figure out the prevailing reason behind the votes, use the `reason()` method:
     print $ent->UpDownPoll->reason(Doctrine_Pollable_Storage_UpDown::UP); //prints 'Insightful'
     print $ent->UpDownPoll->reason(Doctrine_Pollable_Storage_UpDown::DOWN); //prints 'Troll'
 
-++++ Rating (Integer)
+#### Rating (Integer)
 
 Collects integer ratings. Polls are defined as follows:
 
@@ -94,7 +94,7 @@ Collects integer ratings. Polls are defined as follows:
           min: 1
           max: 5
 
-++++ Rating (Floating point)
+#### Rating (Floating point)
 
 Collects floating point ratings. Polls are defined as follows:
 
@@ -106,9 +106,9 @@ Collects floating point ratings. Polls are defined as follows:
           min: 1.0
           max: 10.0
 
-++ Non-discrete
+## Non-discrete
 
-+++ Write-in
+### Write-in
 
 Collects arbitrary strings. Write-in polls are defined as follows:
 
