@@ -67,12 +67,38 @@ abstract class Doctrine_Pollable_Storage
 
     abstract protected function _store(Doctrine_Record $response_record, $response);
 
+    /**
+     * Return a structured array with information on all responses
+     *
+     * @param Doctrine_Record $record
+     * @return array
+     */
     abstract public function responses(Doctrine_Record $record);
 
+    /**
+     * Returns the number of poll responses with the given response
+     *
+     * @param Doctrine_Record $record
+     * @param mixed $response
+     * @return integer
+     */
     abstract public function count(Doctrine_Record $record, $response);
 
+    /**
+     * Returns the percentage poll responses with the given response
+     *
+     * @param Doctrine_Record $record
+     * @param mixed $response
+     * @return float
+     */
     abstract public function percentage(Doctrine_Record $record, $response);
 
+    /**
+     * Returns the total number of poll responses
+     *
+     * @param Doctrine_Record $record
+     * @return integer
+     */
     abstract public function total(Doctrine_Record $record);
 
     /**
@@ -88,20 +114,25 @@ abstract class Doctrine_Pollable_Storage
     /**
      * Get the list of generators for this storage
      *
-     * @return array
+     * @return array Array of Doctrine_Record_Generator_Pollable instances
      */
     public function getGenerators()
     {
         return $this->_generators;
     }
 
+    /**
+     * Gets the generator for the base response
+     *
+     * @return Doctrine_Record_Generator_Pollable
+     */
     public function getResponse()
     {
         return $this->_response;
     }
 
     /**
-     * Sets up a
+     * Sets up this storage during Doctrine model setup time
      * 
      * @param $identity array identity definition
      */
@@ -122,6 +153,12 @@ abstract class Doctrine_Pollable_Storage
         }
     }
     
+    /**
+     * Initializes this storage to a Doctrine_Table instance
+     *
+     * @param Doctrine_Table $table the Doctrine table to initialize to
+     * @param string poll name to initialize
+     */
     public function initialize(Doctrine_Table $table, $poll_name) {
         foreach ($this->getGenerators() as $generator) {
             $generator->setPollName($poll_name);

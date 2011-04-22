@@ -138,6 +138,9 @@ abstract class Doctrine_Record_Generator_Pollable extends Doctrine_Record_Genera
         );
     }
 
+    /**
+     * Adds all columns for this generator
+     */
     public function setTableDefinition()
     {
         foreach ($this->_columns as $column) {
@@ -145,13 +148,12 @@ abstract class Doctrine_Record_Generator_Pollable extends Doctrine_Record_Genera
         }
     }
 
+    /**
+     * Initializes all options for this generator, namely the class name
+     */
     public function initOptions()
     {
         $this->setOption('className', '%CLASS%' . $this->getRelationName());
-    }
-
-    public function initialize(Doctrine_Table $table) {
-        parent::initialize($table);
     }
 
     /**
@@ -191,6 +193,11 @@ abstract class Doctrine_Record_Generator_Pollable extends Doctrine_Record_Genera
         $this->buildLocalRelation('Record');
     }
 
+    /**
+     * Creates an instance of the Doctrine_Record for this generator's table
+     *
+     * @return Doctrine_Record
+     */
     public function create() {
         $class_name = $this->getOption('className');
         return new $class_name();

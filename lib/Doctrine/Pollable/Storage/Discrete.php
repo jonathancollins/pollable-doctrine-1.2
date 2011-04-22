@@ -103,6 +103,9 @@ class Doctrine_Pollable_Storage_Discrete extends Doctrine_Pollable_Storage_Basic
         return $response['count'];
     }
 
+    /**
+     * Sort function for sorting discrete responses in the given order
+     */
     public function sortArray($left, $right)
     {
         return $this->_choices[$right[$this->_column['name']]] - $this->_choices[$left[$this->_column['name']]];

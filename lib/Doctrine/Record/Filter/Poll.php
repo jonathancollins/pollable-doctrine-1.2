@@ -32,12 +32,7 @@ class Doctrine_Record_Filter_Poll extends Doctrine_Record_Filter
     {
         $this->_definition = $definition;
     }
-/*
-    public function init()
-    {
 
-    }
-*/
     /**
      * Always throws Doctrine_Record_UnknownPropertyException
      *

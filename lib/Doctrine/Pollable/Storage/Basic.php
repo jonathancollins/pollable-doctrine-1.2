@@ -90,7 +90,12 @@ abstract class Doctrine_Pollable_Storage_Basic extends Doctrine_Pollable_Storage
             ->limit(1)
             ->fetchArray();
 
-        return $response[0][$this->_column['name']];
+        if (isset($response[0])) {
+          return $response[0][$this->_column['name']];
+        }
+        else {
+          return null;
+        }
     }
 
     protected function getQuery(Doctrine_Record $record)

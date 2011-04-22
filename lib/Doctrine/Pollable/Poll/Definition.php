@@ -53,13 +53,20 @@ class Doctrine_Pollable_Poll_Definition
         $this->_storage = new $storage_class($this->_options['storage']['options']);
     }
 
+    /**
+     * Returns an option by key, or a default if the key doesn't exist
+     *
+     * @param string $key the key to retrieve
+     * @param mixed $default the default to return if the key doesn't exist
+     */
     public function getOption($key, $default = null)
     {
         if (isset($this->_options[$key])) {
             return $this->_options[$key];
         }
-
-        return $default;
+        else {
+          return $default;
+        }
     }
 
     public function getName()
@@ -97,11 +104,19 @@ class Doctrine_Pollable_Poll_Definition
         return $this->_options['identity']['traits'];
     }
 
+    /**
+     * Sets up this poll definition during Doctrine model setup time
+     */
     public function setUp()
     {
         $this->_storage->setUp($this->_options['identity']);
     }
 
+    /**
+     * Initializes this poll definition to a Doctrine_Table instance
+     *
+     * @param Doctrine_Table $table the Doctrine table to initialize to
+     */
     public function initialize(Doctrine_Table $table)
     {
         $this->_storage->initialize($table, $this->_name);

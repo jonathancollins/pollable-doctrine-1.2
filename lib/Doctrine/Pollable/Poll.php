@@ -106,6 +106,11 @@ class Doctrine_Pollable_Poll
         $this->_record->save();
     }
 
+    /**
+     * Check if the given identity is currently throttled on this poll
+     *
+     * @param Doctrine_Pollable_Identity $identity
+     */
     public function isIdentityThrottled(Doctrine_Pollable_Identity $identity)
     {
         return false;
