@@ -130,47 +130,49 @@ class Doctrine_Pollable_Storage_Discrete_TestCase extends Doctrine_UnitTestCase
 
     public function testCount()
     {
-        $this->assertEqual($this->r1->DiscretePoll->count('bad'), 3);
-        $this->assertEqual($this->r1->DiscretePoll->count('ok'), 4);
-        $this->assertEqual($this->r1->DiscretePoll->count('good'), 5);
+        $this->assertIdentical($this->r1->DiscretePoll->count('bad'), 3);
+        $this->assertIdentical($this->r1->DiscretePoll->count('ok'), 4);
+        $this->assertIdentical($this->r1->DiscretePoll->count('good'), 5);
 
-        $this->assertEqual($this->r2->DiscretePoll->count('bad'), 0);
-        $this->assertEqual($this->r2->DiscretePoll->count('ok'), 0);
-        $this->assertEqual($this->r2->DiscretePoll->count('good'), 0);
+        $this->assertIdentical($this->r2->DiscretePoll->count('bad'), 0);
+        $this->assertIdentical($this->r2->DiscretePoll->count('ok'), 0);
+        $this->assertIdentical($this->r2->DiscretePoll->count('good'), 0);
     }
 
     public function testPercentage()
     {
-        $this->assertEqual($this->r1->DiscretePoll->percentage('bad'), 3 / 12 * 100);
-        $this->assertEqual($this->r1->DiscretePoll->percentage('ok'), 4 / 12 * 100);
-        $this->assertEqual($this->r1->DiscretePoll->percentage('good'), 5 / 12 * 100);
+        $this->assertIdentical($this->r1->DiscretePoll->percentage('bad'), 3 / 12 * 100);
+        $this->assertIdentical($this->r1->DiscretePoll->percentage('ok'), 4 / 12 * 100);
+        $this->assertIdentical($this->r1->DiscretePoll->percentage('good'), 5 / 12 * 100);
 
-        $this->assertEqual($this->r2->DiscretePoll->count('bad'), null);
-        $this->assertEqual($this->r2->DiscretePoll->count('ok'), null);
-        $this->assertEqual($this->r2->DiscretePoll->count('good'), null);
+        $this->assertIdentical($this->r2->DiscretePoll->percentage('bad'), null);
+        $this->assertIdentical($this->r2->DiscretePoll->percentage('ok'), null);
+        $this->assertIdentical($this->r2->DiscretePoll->percentage('good'), null);
     }
 
     public function testTotal()
     {
-        $this->assertEqual($this->r1->DiscretePoll->total(), 12);
+        $this->assertIdentical($this->r1->DiscretePoll->total(), 12);
 
-        $this->assertEqual($this->r2->DiscretePoll->total(), 0);
+        $this->assertIdentical($this->r2->DiscretePoll->total(), 0);
     }
 
     public function testMedian()
     {
-        $this->assertEqual($this->r1->DiscretePoll->median(), 'ok');
+        $this->assertIdentical($this->r1->DiscretePoll->median(), 'ok');
 
-        $this->assertEqual($this->r2->DiscretePoll->total(), null);
+        $this->assertIdentical($this->r2->DiscretePoll->median(), null);
 
-        $this->assertEqual($this->r2->DiscretePoll->total(), 'ok'); // {bad,ok,good,good} returns left-side value
+        $this->assertIdentical($this->r3->DiscretePoll->median(), 'ok'); // {bad,ok,good,good} returns left-side value
     }
 
     public function testMode()
     {
-        $this->assertEqual($this->r1->DiscretePoll->mode(), 'good');
+        $this->assertIdentical($this->r1->DiscretePoll->mode(), 'good');
 
-        $this->assertEqual($this->r2->DiscretePoll->total(), null);
+        $this->assertIdentical($this->r2->DiscretePoll->mode(), null);
+        
+        $this->assertIdentical($this->r1->DiscretePoll->mode(), 'good');
     }
 }
 
